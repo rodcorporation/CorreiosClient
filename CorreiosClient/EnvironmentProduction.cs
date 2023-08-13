@@ -2,6 +2,6 @@
 {
     public class EnvironmentProduction : IEnvironment
     {
-        public string GetUrl() => "https://api.mandae.com.br/v2";
+        public string GetUrl() => "https://api.correios.com.br";
     }
 }
