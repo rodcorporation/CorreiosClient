@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace CorreiosClient.Models
@@ -9,7 +10,7 @@ namespace CorreiosClient.Models
         public string Versao { get; set; }
 
         [JsonProperty("quantidade")]
-        public int quantidade { get; set; }
+        public int Quantidade { get; set; }
 
         [JsonProperty("objetos")]
         public List<ObjetoConsultarObjetoResponse> Objetos { get; set; }
@@ -22,7 +23,7 @@ namespace CorreiosClient.Models
             [JsonProperty("tipoPostal")]
             public TipoPostalObjetoConsultarObjetoResponse TipoPostal { get; set; }
 
-            [JsonProperty("versao")]
+            [JsonProperty("eventos")]
             public List<EventoObjetoConsultarObjetoResponse> Eventos { get; set; }
         }
 
@@ -48,7 +49,7 @@ namespace CorreiosClient.Models
             public string Tipo { get; set; }
 
             [JsonProperty("dtHrCriado")]
-            public string DataHoraCriado { get; set; }
+            public DateTime DataHoraCriado { get; set; }
 
             [JsonProperty("descricao")]
             public string Descricao { get; set; }
@@ -74,47 +75,5 @@ namespace CorreiosClient.Models
             [JsonProperty("uf")]
             public string Uf { get; set; }
         }
-
-        [JsonProperty("pcBase")]
-        public string PrecoBase { get; set; }
-        
-        [JsonProperty("pcBaseGeral")]
-        public string PrecoBaseGeral { get; set; }
-        
-        [JsonProperty("peVariacao")]
-        public string PercentualVariacao { get; set; }
-        
-        [JsonProperty("pcReferencia")]
-        public string PrecoReferencia { get; set; }
-        
-        [JsonProperty("vlBaseCalculoImposto")]
-        public string ValorBaseCalculoImposto { get; set; }
-        
-        [JsonProperty("inPesoCubico")]
-        public string IndicadorPesoCubico { get; set; }
-        
-        [JsonProperty("psCobrado")]
-        public string PesoCobrado { get; set; }
-        
-        [JsonProperty("peAdValorem")]
-        public string PercentualAdValorem { get; set; }
-        
-        [JsonProperty("vlSeguroAutomatico")]
-        public string ValorSeguroAutomatico { get; set; }
-        
-        [JsonProperty("qtAdicional")]
-        public string QuantidadeAdicional { get; set; }
-        
-        [JsonProperty("pcFaixa")]
-        public string PrecoFaixa { get; set; }
-        
-        [JsonProperty("pcFaixaVariacao")]
-        public string PrecoFaixaVariacao { get; set; }
-        
-        [JsonProperty("pcProduto")]
-        public string PrecoProduto { get; set; }
-        
-        [JsonProperty("pcFinal")]
-        public string PrecoFinal { get; set; }
     }
 }

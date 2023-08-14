@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace CorreiosClient.Models
 {
@@ -8,45 +9,45 @@ namespace CorreiosClient.Models
         public string CodigoProduto { get; set; }
         
         [JsonProperty("pcBase")]
-        public string PrecoBase { get; set; }
+        public Decimal PrecoBase { get; set; }
         
         [JsonProperty("pcBaseGeral")]
-        public string PrecoBaseGeral { get; set; }
+        public Decimal PrecoBaseGeral { get; set; }
         
         [JsonProperty("peVariacao")]
-        public string PercentualVariacao { get; set; }
+        public Decimal PercentualVariacao { get; set; }
         
         [JsonProperty("pcReferencia")]
-        public string PrecoReferencia { get; set; }
+        public Decimal PrecoReferencia { get; set; }
         
         [JsonProperty("vlBaseCalculoImposto")]
-        public string ValorBaseCalculoImposto { get; set; }
+        public Decimal ValorBaseCalculoImposto { get; set; }
         
         [JsonProperty("inPesoCubico")]
         public string IndicadorPesoCubico { get; set; }
         
         [JsonProperty("psCobrado")]
-        public string PesoCobrado { get; set; }
+        public double PesoCobrado { get; set; }
         
         [JsonProperty("peAdValorem")]
-        public string PercentualAdValorem { get; set; }
+        public Decimal PercentualAdValorem { get; set; }
         
         [JsonProperty("vlSeguroAutomatico")]
-        public string ValorSeguroAutomatico { get; set; }
+        public Decimal ValorSeguroAutomatico { get; set; }
         
         [JsonProperty("qtAdicional")]
-        public string QuantidadeAdicional { get; set; }
+        public int QuantidadeAdicional { get; set; }
         
         [JsonProperty("pcFaixa")]
-        public string PrecoFaixa { get; set; }
+        public Decimal PrecoFaixa { get; set; }
         
         [JsonProperty("pcFaixaVariacao")]
-        public string PrecoFaixaVariacao { get; set; }
+        public Decimal PrecoFaixaVariacao { get; set; }
         
         [JsonProperty("pcProduto")]
-        public string PrecoProduto { get; set; }
+        public Decimal PrecoProduto { get; set; }
         
         [JsonProperty("pcFinal")]
-        public string PrecoFinal { get; set; }
+        public Decimal PrecoFinal { get; set; }
     }
 }

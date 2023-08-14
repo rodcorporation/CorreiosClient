@@ -9,19 +9,19 @@ namespace CorreiosClient.Models
         [JsonProperty("ambiente")]
         internal string Ambiente { get; set; }
         
-        [JsonProperty("ambiente")] 
+        [JsonProperty("id")] 
         internal string Id { get; set; }
         
-        [JsonProperty("ambiente")] 
+        [JsonProperty("ip")] 
         internal string Ip { get; set; }
         
-        [JsonProperty("ambiente")] 
+        [JsonProperty("perfil")] 
         internal string Perfil { get; set; }
         
-        [JsonProperty("ambiente")] 
+        [JsonProperty("cnpj")] 
         internal string Cnpj { get; set; }
         
-        [JsonProperty("ambiente")] 
+        [JsonProperty("cartaoPostagem")] 
         internal CartaoPostagemAutenticarCartaoPostagemResponse CartaoPostagem { get; set; }
         
         [JsonProperty("emissao")]
@@ -30,8 +30,8 @@ namespace CorreiosClient.Models
         [JsonProperty("expiraEm")]
         internal DateTime ExpiraEm { get; set; }
         
-        [JsonProperty("offset")]
-        internal string Offset { get; set; }
+        [JsonProperty("zoneOffset")]
+        internal string ZoneOffset { get; set; }
         
         [JsonProperty("token")]
         internal string Token { get; set; }

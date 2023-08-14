@@ -14,6 +14,11 @@ namespace CorreiosClient
             Response = JsonConvert.DeserializeObject<T>(response);
         }
 
+        public ApiResponse(T response)
+        {
+            Response = response;
+        }
+
         public ApiResponse(MessageResponse error)
         {
             Error = error;

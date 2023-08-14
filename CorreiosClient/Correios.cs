@@ -19,7 +19,7 @@ namespace CorreiosClient
         {
             _credential = credential;
             _environment = environment;
-            
+
             _httpClient = new HttpClient
             {
                 BaseAddress = new Uri(_environment.GetUrl()),
@@ -45,16 +45,16 @@ namespace CorreiosClient
 
             var response = client.PostAsync($"/token/v1/autentica/cartaopostagem", content).Result;
 
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                _autenticarCartaoPostagemResponse = JsonConvert.DeserializeObject<AutenticarCartaoPostagemResponse>(response.Content.ReadAsStringAsync().Result);
+                var message = JsonConvert.DeserializeObject<MessageResponse>(response.Content.ReadAsStringAsync().Result);
 
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _autenticarCartaoPostagemResponse.Token);
+                throw new Exception(message.Messages.FirstOrDefault() ?? "Ocorreu um erro");
             }
-            
-            var message = JsonConvert.DeserializeObject<MessageResponse>(response.Content.ReadAsStringAsync().Result);
 
-            throw new Exception(message.Messages.FirstOrDefault() ?? "Ocorreu um erro");
+            _autenticarCartaoPostagemResponse = JsonConvert.DeserializeObject<AutenticarCartaoPostagemResponse>(response.Content.ReadAsStringAsync().Result);
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _autenticarCartaoPostagemResponse.Token);
         }
 
         public ApiResponse<CalcularPrazoResponse> CalcularPrazo(string codigoServico,
@@ -79,7 +79,10 @@ namespace CorreiosClient
             if (!response.IsSuccessStatusCode)
                 return new ApiResponse<CalcularPrecoResponse>(JsonConvert.DeserializeObject<MessageResponse>(response.Content.ReadAsStringAsync().Result));
 
-            return new ApiResponse<CalcularPrecoResponse>(response.Content.ReadAsStringAsync().Result);
+            return new ApiResponse<CalcularPrecoResponse>(JsonConvert.DeserializeObject<CalcularPrecoResponse>(response.Content.ReadAsStringAsync().Result, new JsonSerializerSettings
+            {
+                Culture = System.Globalization.CultureInfo.GetCultureInfo("pt-BR")
+            }));
         }
 
         public ApiResponse<ConsultarObjetoResponse> ConsultarObjeto(string codigoObjeto)

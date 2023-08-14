@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>CorreiosClient</id>
+    <version>1.0.0</version>
+    <authors>rodcorporation</authors>
+    <owners>rodcorporation</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/rodcorporation/MandaeClient</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Pacote para integração do serviço REST dos Correios.</description>
+    <copyright>Copyright 2023</copyright>
+    <language>pt-BR</language>
+    <tags>Correios Client</tags>
+    <repository type="git" url="https://github.com/rodcorporation/CorreiosClient" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2" />
+    </dependencies>
+	<contentFiles>
+	</contentFiles>
+  </metadata>
+  <files>
+	<file src="bin\Release\*.dll" target="lib\net472" />
+  </files>
+</package>
